@@ -1,0 +1,23 @@
+<group name="300 WATCHDOG,zero_trust,">
+
+  <rule id="100000" level="3">
+    <decoded_as>json</decoded_as>
+    <field name="route">\.+</field>
+    <description> Access event recorded.</description>
+  </rule>
+
+  <rule id="100001" level="7">
+    <if_sid>100000</if_sid>
+    <field name="decision">deny</field>
+    <description>Zero Trust Access DENIED for Agent: $(agent_id). Reason: $(reason)</description>
+  </rule>
+
+  <rule id="100002" level="12">
+    <if_sid>100001</if_sid>
+    <field name="route">^/sensitive/keys$</field>
+    <description>SECURITY ALERT: Honeypot Triggered by Rogue Agent $(agent_id)!</description>
+    <mitre>
+      <id>T1078</id> <id>T1190</id> </mitre>
+  </rule>
+
+</group>

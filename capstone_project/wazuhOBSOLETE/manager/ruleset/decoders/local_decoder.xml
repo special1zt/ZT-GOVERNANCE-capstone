@@ -1,0 +1,4 @@
+<decoder name="capstone-json">
+  <prematch>^{"ts":</prematch>
+  <plugin_decoder>JSON_Decoder</plugin_decoder>
+</decoder>

@@ -1,0 +1,8 @@
+fastapi==0.115.8
+uvicorn[standard]
+sqlalchemy
+pymysql
+cryptography
+python-jose[cryptography] # To read and verify Keycloak tokens
+httpx
+pydantic               # To validate incoming data shapes

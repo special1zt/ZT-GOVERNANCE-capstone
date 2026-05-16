@@ -1,0 +1,38 @@
+{
+  "realm": "capstone",
+  "enabled": true,
+  "accessTokenLifespan": 2700,
+  "displayName": "Capstone Zero Trust Realm",
+  "clients": [
+    {
+      "clientId": "capstone-client",
+      "enabled": true,
+      "publicClient": true,
+      "directAccessGrantsEnabled": true,
+      "standardFlowEnabled": true,
+      "redirectUris": ["*"],
+      "webOrigins": ["*"]
+    }
+  ],
+  "roles": {
+    "realm": [
+      { "name": "agent_basic" },
+      { "name": "agent_internal" },
+      { "name": "agent_sensitive" }
+    ]
+  },
+  "users": [
+    {
+      "username": "agent1",
+      "enabled": true,
+      "credentials": [{ "type": "password", "value": "agentpass123", "temporary": false }],
+      "realmRoles": ["agent_basic", "agent_internal"]
+    },
+    {
+      "username": "agent2",
+      "enabled": true,
+      "credentials": [{ "type": "password", "value": "agentpass123", "temporary": false }],
+      "realmRoles": ["agent_basic", "agent_sensitive"]
+    }
+  ]
+}
